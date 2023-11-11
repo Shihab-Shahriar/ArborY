@@ -1,8 +1,8 @@
 Minimum seperation distance functions between many 3d geometrical shapes, 0.0 distance implies overlap.
 
 ## Compilation
-+ There are two executables: oen called `app` that demonstrates the use of these functions. The other is called `cgal`, mainly for testing purposes. It calls the many of the same functions using CGAL library to compare output against `app`.
-+ To compile: from a `build` directory, run `bash ../compile.sh` and then `make`. Comment out the last few lines if CGAL is not installed.
++ There are two executables: one called `app` that demonstrates the use of these functions. The other is called `cgal`, mainly for testing purposes. It calls the many of the same functions using CGAL library to compare output against `app`.
++ To compile: from a `build` directory, run `bash ../compile.sh` and then `make`. Comment out the last few lines of `CMakeLists.txt` if CGAL is not installed.
 
 ## Usage
 + Most of the functions are in `include/distances.h`. 
@@ -12,4 +12,3 @@ Minimum seperation distance functions between many 3d geometrical shapes, 0.0 di
 
 ## Notes
 + Testing is done against CGAL for all except capsule pairs. But I only chose few ad-hoc pairs of test cases. In short, testing isn't comprehensive, but it's robust for the cases I've tested.
-+ 
