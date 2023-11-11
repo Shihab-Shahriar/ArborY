@@ -20,8 +20,9 @@ FetchContent_MakeAvailable(kokkos)
 
 add_executable(app program.cpp)
 target_link_libraries(app Kokkos::kokkos)
+target_include_directories(app PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
-
+# For testing purpose
 find_package(CGAL REQUIRED COMPONENTS Core)
 add_executable(cgal cgall.cpp)
 target_link_libraries(cgal CGAL::CGAL CGAL::CGAL_Core)

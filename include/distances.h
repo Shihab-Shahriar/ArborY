@@ -344,6 +344,7 @@ double PointToCapsuleDistance(const Vec3d& p, const Vec3d& l1, const Vec3d& l2, 
   return Kokkos::fmin(PointToSphereDistance(p, l1, radius), PointToSphereDistance(p, l2, radius));
 }
 
+
 /**
  * @brief: AABB to AABB distance
  * 

@@ -68,12 +68,35 @@ void pointToLine(){
     std::cout << "The distance from the point to the line is: " << distance << std::endl;
 }
 
+void segmentToSegment(){
+    typedef Kernel::Segment_3 Segment_3;
+
+    Point_3 seg1_point_1(0.0, 0.0, 0.0); 
+    Point_3 seg1_point_2(2.0, 0.0, 0.0); // Second endpoint 
+    Segment_3 segment1(seg1_point_1, seg1_point_2);
+
+    Point_3 seg2_point_1(0.0, 1.0, 0.0); 
+    Point_3 seg2_point_2(2.0, 1.0, 0.0); // Second endpoint 
+    Segment_3 segment2(seg2_point_1, seg2_point_2);
+
+    Point_3 seg3_point_1(7.0, 11.0, 9.0);
+    Point_3 seg3_point_2(3.0, -8.0, 12.0); 
+    Segment_3 segment3(seg3_point_1, seg3_point_2);
+
+    double distance = CGAL::squared_distance(segment1, segment2);
+    double distance2 = CGAL::squared_distance(segment1, segment3);
+
+    std::cout << "The distance from the segment to the segment is: " << distance << std::endl;
+    std::cout << "The distance from the segment to the segment is: " << distance2 << std::endl;
+}
+
 int main() {
     pointToPoint();
     pointToSegment();
     pointToPlane();
     pointToTriangle();
     pointToLine();
+    segmentToSegment();
 
     return 0;
 }
