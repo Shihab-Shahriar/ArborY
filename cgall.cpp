@@ -90,6 +90,31 @@ void segmentToSegment(){
     std::cout << "The distance from the segment to the segment is: " << distance2 << std::endl;
 }
 
+void triangleToTriangle(){
+    typedef Kernel::Triangle_3 Triangle_3;
+
+    Point_3 tri1_point_1(0.0, -1.0, 2.0); 
+    Point_3 tri1_point_2(1.0, 2.0, 2.0); 
+    Point_3 tri1_point_3(2.0, 1.0, 2.0); 
+    Triangle_3 triangle1(tri1_point_1, tri1_point_2, tri1_point_3);
+
+    Point_3 tri2_point_1(-5.0, 1.0, 1.9); 
+    Point_3 tri2_point_2(-5.0, 3.0, 2.0); 
+    Point_3 tri2_point_3(-5.0, 9.0, 7.0); 
+    Triangle_3 triangle2(tri2_point_1, tri2_point_2, tri2_point_3);
+
+    Point_3 tri3_point_1(1.25, -5.0, -2.0); 
+    Point_3 tri3_point_2(1.25, 1.5, 1.9); 
+    Point_3 tri3_point_3(1.25, 5.0, -2.0); 
+    Triangle_3 triangle3(tri3_point_1, tri3_point_2, tri3_point_3);
+
+    double distance = CGAL::squared_distance(triangle1, triangle2);
+    double distance2 = CGAL::squared_distance(triangle1, triangle3);
+
+    std::cout << "The distance from the triangle to the triangle is: " << distance << std::endl;
+    std::cout << "The distance from the triangle to the triangle is: " << distance2 << std::endl;
+}
+
 int main() {
     pointToPoint();
     pointToSegment();
@@ -97,6 +122,7 @@ int main() {
     pointToTriangle();
     pointToLine();
     segmentToSegment();
+    triangleToTriangle();
 
     return 0;
 }

@@ -1,6 +1,7 @@
 #include "distances.h"
 #include "segment_segment.h"
 #include "capsule_capsule.h"
+#include "triangle_triangle.h"
 #include "vector.h"
 
 #include <Kokkos_Core.hpp>
@@ -125,6 +126,30 @@ void capsule_capsule(){
 
 }
 
+void triangle_triangle(){
+    Vec3d triangle0[3];
+    triangle0[0] = Vec3d(0.0, -1.0, 2.0);
+    triangle0[1] = Vec3d(1.0, 3.0, 2.0);
+    triangle0[2] = Vec3d(2.0, 1.0, 2.0);
+
+    Vec3d triangle1[3];
+    triangle1[0] = Vec3d(-5.0, 1.0, 1.9);
+    triangle1[1] = Vec3d(-5.0, 3.0, 2.0);
+    triangle1[2] = Vec3d(-5.0, 9.0, 7.0);
+
+    Vec3d triangle2[3];
+    triangle2[0] = Vec3d(1.25, -5.0, -2.0);
+    triangle2[1] = Vec3d(1.25, 1.5, 1.9);  
+    triangle2[2] = Vec3d(1.25, 5.0, -2.0);
+
+    double distance = TriangleTriangleDistanceSquared<double, Vec3d>(triangle0, triangle1);
+    std::cout<<"The sq distance from the triangle to the triangle is: "<<distance<<std::endl;
+    
+    double distance2 = TriangleTriangleDistanceSquared<double, Vec3d>(triangle0, triangle2);
+    std::cout<<"The sq distance from the triangle to the triangle is: "<<distance2<<std::endl;
+
+}
+
 
 int main(int argc, char *argv[]){
     Kokkos::ScopeGuard guard(argc, argv);
@@ -137,6 +162,7 @@ int main(int argc, char *argv[]){
     point_capsule();
     segment_segment();
     capsule_capsule();
+    triangle_triangle();
 
     return 0;
 }
